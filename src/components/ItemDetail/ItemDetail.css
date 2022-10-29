@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+.contenedor p{
+    color: red;
+    font-family: 'Comforter Brush', cursive;
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.contenedor img{
+    width: 400px;
+    height: 400px;
+    margin-left: 450px;
+    border-radius: 30%;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(75, 75, 75);
+    
+}
+.terminarCompra{
+    font-size: 40px;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: orange;
+    border-radius: 50%;
+    text-align: center;
+    height: 100px;
+    width: 300px;
+    margin-left: 500px;
+}

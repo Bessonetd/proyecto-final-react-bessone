@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Cart from './components/Cart/Cart';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CartProvider from './Context/CartContext';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <CartProvider>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path='/' element={<ItemListContainer greeting="Bievenido a Entre Hilos y Pinceles" />} />
+          <Route path='/categoria/:categoriaId' element={<ItemListContainer greeting="Bienvendio a " />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/detalle/:detalleId' element={<ItemDetailContainer />} />
+        </Routes>
+      </CartProvider>
+    </BrowserRouter>
   );
 }
 

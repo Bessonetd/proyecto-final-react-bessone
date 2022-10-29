@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+.item{
+    display: inline-block;
+    background-color: rgb(75, 75, 75);
+    border-radius: 7%;
+    height: 600px;
+    width: 400px;
+    margin-right: 10px;
+    text-decoration: none;
+    box-shadow: 10px 10px 10px black;
+    margin-top: 20px;
+}
+.item img{
+    height: 60%;
+    width: 80%;
+    border-radius: 10%;
+    margin-left: 35px;
+}
+.item p{
+    font-family: 'Comforter Brush', cursive;
+    font-size: 50px;
+    color: orange;
+    text-align: center;
+    
+}

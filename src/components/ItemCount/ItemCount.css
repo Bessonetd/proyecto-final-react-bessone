@@ -1,0 +1,15 @@
+.Count{
+    background-color: red;
+    height: 100px;
+    width: 300px;
+    margin-left: 500px;
+    text-align: center;
+}
+
+.Count button{
+    font-size: 30px;
+}
+
+.Count span{
+    font-size: 30px;
+}

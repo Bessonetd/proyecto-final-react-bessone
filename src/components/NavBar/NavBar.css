@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Comforter Brush', cursive;
+  font-size: 60px;
+  position: absolute;
+  left:470px;
+  top: 40px;
+}
+
+nav {
+  background-color: orangered;
+  display: flex;
+  flex-direction: column;
+  height: 115px;
+}
+
+nav ul {
+  list-style: none;
+  align-self: center;
+}
+
+nav li {
+  float: left;
+  text-align: center;
+  width: 210px;
+  border-radius: 10px;
+  background-color: orange;
+  word-spacing: 100px;
+  margin-right: 20px;
+  
+}
+
+.nav-link{
+  text-decoration: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  color: black;
+  font-size: 20px;
+  
+}
+
