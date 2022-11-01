@@ -2,26 +2,40 @@ import { useCartContext } from "../../Context/CartContext"
 import { Link } from 'react-router-dom'
 import ItemCart from "../ItemCart/ItemCart"
 import { addDoc, collection, getFirestore } from "firebase/firestore"
+import { useState } from "react"
+import "./Cart.css"
+import { clear } from "@testing-library/user-event/dist/clear"
 
 const Cart = () => {
-    const { cart, totalPrice } = useCartContext()
+    const { cart, totalPrice, clear } = useCartContext()
+
+    const defaultForm = { name: "", email: "", phone: "" };
+
+    const [form, setForm] = useState(defaultForm);
+
+    const changeHandler = (ev) => {
+        setForm({ ...form, [ev.target.name]: ev.target.value });
+    };
+
+    const handleClick = () => {
+        const db = getFirestore()
+        const ordersCollection = collection(db, 'orders')
+        addDoc(ordersCollection, order)
+            .then(({ id }) => { console.log(id); clear() })
+
+    }
 
     const order = {
         buyer: {
-            name: 'Tomas',
-            email: 'Tomas@hotmail.com',
-            phone: '15502348'
+            name: form.name,
+            email: form.email,
+            phone: form.phone
         },
         items: cart.map(product => ({ id: product.id, title: product.nombre, price: product.precio, quantity: product.quantity })),
         total: totalPrice(),
     }
 
-    const handleClick = () => {
-        const db = getFirestore()
-        const ordersCollection = collection(db, 'orders')
-        addDoc(ordersCollection,order)
-        .then(({id}) => console.log(id))
-    }
+
 
     if (cart.length === 0) {
         return (
@@ -36,7 +50,41 @@ const Cart = () => {
             {
                 cart.map(product => <ItemCart key={product.id} product={product} />)
             }
-            <p>Total: {totalPrice()}</p>
+            <p>Total: $ {totalPrice()}</p>
+            <form >
+                <div>
+                    <label htmlFor="name">Nombre</label>
+                    <input
+                        name="name"
+                        id="name"
+                        value={form.name}
+                        onChange={changeHandler}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        value={form.email}
+                        onChange={changeHandler}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="phone">Telefono</label>
+                    <input
+                        type="phone"
+                        name="phone"
+                        id="phone"
+                        value={form.phone}
+                        onChange={changeHandler}
+                    />
+                </div>
+
+                <Link to="/"><button><h4>Volver al inicio</h4></button></Link>
+            </form>
+
             <button onClick={handleClick}>Emitir Compra</button>
         </>
     )

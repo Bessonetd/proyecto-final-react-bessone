@@ -3,11 +3,11 @@ import "./ItemCart.css"
 
 
 
-const ItemCart = ({product}) => {
-    const {removeItem } = useCartContext()
-    return(
+const ItemCart = ({ product }) => {
+    const { removeItem } = useCartContext()
+    return (
         <div className="itemCart">
-            <img src={product.imagen} alt={product.nombre}/>
+            <img src={product.imagen} alt={product.nombre} />
             <div>
                 <p>Producto: {product.nombre}</p>
                 <p>Cantidad: {product.quantity}</p>

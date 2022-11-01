@@ -13,7 +13,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   }
   useEffect(() => {
     setContador(parseInt(initial))
-  },[initial])
+  }, [initial])
 
   return (
 
